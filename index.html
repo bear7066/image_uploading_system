@@ -2,18 +2,51 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8">
-        <link href="css/styles.css">
+        <meta http-equiv="X-UA-compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="css/styles.css">
+        <title>Document</title>
     </head>
     <body>
+        <!-- 
+            NOTE:
+            1. div for big element, span for details 
+        -->
         <main class="app">
             <div class="header">
                 <h2>Upload images</h2>
                 <div class="server_message"> </div>
             </div>
-            <!-- div for big element, span for details -->
             <div class="input_div">
-                <p>Drag and drop images here or <span class="browse"> Browse </span> </p>
+                <p>Drag and drop images here or <span class="browse">Browse</span></p>
+                <input type="file" class="file" multiple="multiple" accept="image/jpeg, image/png, image/jpg">
             </div>
+
+            <form id="save_form">
+                <div class="header">
+                    <h3>Saved in server</h3>
+                    <button type="submit"> Delete </button>
+                </div>
+                <div class="saved_div"></div>
+            </form>
+
+            <form id="queue_form">
+                <div class="header">
+                    <h3>Queue in frontend</h3>
+                    <button type="submit"> Upload </button>
+                </div>
+                <div class="queued_div"></div>
+            </form>
         </main>
+        <script>
+            let queued_images_array = [],
+            saved_form = document.querySelector("#save_form"),
+            queued_form = document.querySelector("#queued_form"),
+            saved_div = document.querySelector(".saved_div"),    
+            queued_div = document.querySelector(".queued_div"),
+            input_div = document.querySelector(".input_div"),
+            server_message = document.querySelector(".server_message"),
+            deleted_images_array = [];
+        </script>
     </body>
 </html>
