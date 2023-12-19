@@ -1,3 +1,4 @@
+<!--https://www.youtube.com/watch?v=EaBSeNSc-2c-->
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -77,8 +78,12 @@
             function display_queue_images(){
                 let image = ""
                 queued_images_array.forEach((image, index)=>{
-                    
+                    images += `<div class = "image">
+                               <img scr = "${URL.createObjectURL(image)}" alt="">
+                               <span onclick="deleted_queue_images(${index})">&times;</span>
+                              </div>`
                 })
+                queued_div.innerHTML = images
             }
 
     </script>
